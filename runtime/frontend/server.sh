@@ -30,7 +30,8 @@ done
 unzip -oqd ./$pkgName $pkgPath/$pkgName.zip;
 
 # backup
-cp -f $pkgPath/$pkgName.zip history/;
+now=$(date '+%Y-%m-%d_%H:%M:%S')
+cp -f $pkgPath/$pkgName.zip history/"$pkgName.zip.$now";
 
 # serve reload
 nginx -s reload && echo "========== $curFile: nginx reloaded. ==========";

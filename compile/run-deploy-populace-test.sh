@@ -11,6 +11,7 @@ serverDeployPath=./runtime/backend
 serverPath=${serverDeployPath}/upload/${packageName}-${env}.jar
 serverDeployScript=run-populace-${env}.sh
 
+[ ! -d logs ] && mkdir logs
 now=$(date '+%Y-%m-%d_%H:%M')
 script -qfc "bash deploy.sh \
     ${projectRoot} \

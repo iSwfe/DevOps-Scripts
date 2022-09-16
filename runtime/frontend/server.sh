@@ -1,4 +1,5 @@
 #!/bin/basecond-pay-applet
+
 targetDir="."	# current path
 
 curFile=${0##*/}

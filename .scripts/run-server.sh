@@ -20,7 +20,8 @@ runPath=.run/${package}
 rm -rf $runPath/*
 
 # 分离项目环境
-cp $configPath $runPath/application-${profile}.yml
+configFileSuffer=${configPath##*.}
+cp $configPath $runPath/application-${profile}.${configFileSuffer}
 cp $uploadPackagePath $runPath/
 [[ -d ${supplyPath} ]] && cp -R $supplyPath/* $runPath
 

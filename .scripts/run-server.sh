@@ -21,7 +21,12 @@ rm -rf $runPath/*
 
 # 分离项目环境
 configFileSuffer=${configPath##*.}
-cp $configPath $runPath/application-${profile}.${configFileSuffer}
+# 复制启动配置文件，支持"application-*.*"和"bootstrap-*.*"多种配置
+if [[ ${configPath##*/} =~ ^application ]]; then
+    cp $configPath $runPath/application-${profile}.${configFileSuffer};
+elif [[ ${configPath##*/} =~ ^bootstrap ]]; then
+    cp $configPath $runPath/bootstrap-${profile}.${configFileSuffer};
+fi
 cp $uploadPackagePath $runPath/
 [[ -d ${supplyPath} ]] && cp -R $supplyPath/* $runPath
 

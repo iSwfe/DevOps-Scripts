@@ -9,7 +9,7 @@ env=test
 server=lc227
 serverDeployPath=./runtime/backend
 serverPath=${serverDeployPath}/upload/${packageName}-${env}.jar
-serverDeployScript=run-populace-${env}.sh
+serverDeployCommand="bash -il run-populace-${env}.sh"
 
 [ ! -d logs ] && mkdir logs
 now=$(date '+%Y-%m-%d_%H:%M')
@@ -22,6 +22,6 @@ script -qfc "bash deploy.sh \
     ${server} \
     ${serverDeployPath} \
     ${serverPath} \
-    ${serverDeployScript} \
+    '${serverDeployCommand}' \
 " logs/${0##*/}_${now}.log
 

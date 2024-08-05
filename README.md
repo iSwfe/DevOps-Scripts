@@ -1,2 +1,2 @@
 # DevOps-Scripts
-Shell scripts for DevOps.
+Shell scripts for DevOps of service running.
